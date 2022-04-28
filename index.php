@@ -10,7 +10,7 @@
 
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
-	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link rel="stylesheet" href="<?php bloginfo ('template_url'); ?>/estilos.css">
 
 </head>
 
@@ -45,6 +45,18 @@
 </header>
 <section class="container">
 	<center>
+     <?php $articulos = new WP_Query ([ 
+                         'showpost'=> 3,
+                         ]);
+     while ($articulos -> have_posts ()) {
+     	$articulos -> the_post ();
+
+     	the_title ();
+     	echo '<hr>';
+     } ?>
+
+
+
 
 		<h3><b>Osos polares</b></h3>
 		<img src="https://static.dw.com/image/52547785_303.jpg" width="300">
